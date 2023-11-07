@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+         div{
+         margin-left: 30%;
+          width: 30%;
+          border: solid 2px black;
+      }
+    </style>
+   
+</head>
+
+<body>
+    <div class="login_div">
+        <h1>Login Page</h1>
+        <form>
+            
+                <label name="username">Username:</label>
+                <input type="text" id="username" name="username"><br><br>
+
+            
+                <label name="password">Password:</label>
+                <input type="password" id="password" name="password"><br><br>
+
+            
+                <button type="button" id="login-button" onclick="check()">Login</button>
+                <p>Not signed in : <a href="register.html">sign up</a></p>
+
+        </form>
+    </div>
+    <script>
+        function check() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const storedUsername = localStorage.getItem('username');
+            const storedPassword = localStorage.getItem('password');
+
+            if (username === storedUsername && password === storedPassword) {
+                alert('Login successful!');
+                location.replace("index.html");
+            }
+            else if (username != storedUsername) {
+                alert('user not exist');
+            }
+            else {
+                alert('Invalid password');
+            }
+        };
+    </script>
+</body>
+
+</html>
